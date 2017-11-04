@@ -4,7 +4,7 @@
     <parent>
         <groupId>com.manorrock.files</groupId>
         <artifactId>project</artifactId>
-        <version>37-SNAPSHOT</version>
+        <version>37</version>
     </parent>
     <artifactId>rest</artifactId>
     <packaging>jar</packaging>

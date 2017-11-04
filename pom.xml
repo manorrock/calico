@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.manorrock.files</groupId>
     <artifactId>project</artifactId>
-    <version>37-SNAPSHOT</version>
+    <version>37</version>
     <packaging>pom</packaging>
     <name>Manorrock Files Project</name>
     <modules>
