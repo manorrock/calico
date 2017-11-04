@@ -1,0 +1,6 @@
+/model/target/
+/rest/nbactions.xml
+/rest/target/
+/webapp/target/
+/webapp/dependency-reduced-pom.xml
+/webapp/nbactions.xml
