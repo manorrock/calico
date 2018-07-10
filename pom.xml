@@ -7,11 +7,10 @@
     <packaging>pom</packaging>
     <name>Manorrock Calico Project</name>
     <modules>
+        <module>calico</module>
         <module>model</module>
         <module>rest</module>
-        <module>webapp</module>
-    <module>calico</module>
-  </modules>
+    </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>

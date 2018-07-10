@@ -5,3 +5,5 @@
 /webapp/dependency-reduced-pom.xml
 /webapp/nbactions.xml
 /calico/target/
+/calico/nb-configuration.xml
+/target/

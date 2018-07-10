@@ -1,5 +1,0 @@
-FROM manorrock/jdk:arm32v6
-ENV PATH_PREFIX /files/webapp
-ENV SERVER_PORT 8082
-COPY target/*-all.jar /opt/files_webapp/files_webapp.jar
-CMD ["java",  "-jar", "/opt/files_webapp/files_webapp.jar"]
