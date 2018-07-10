@@ -9,7 +9,6 @@
     <modules>
         <module>calico</module>
         <module>model</module>
-        <module>rest</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

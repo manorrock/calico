@@ -74,6 +74,28 @@ public class ApplicationBean implements Serializable {
     }
 
     /**
+     * Create the file.
+     *
+     * @param filePath the file path.
+     * @param inputStream the input stream.
+     * @throws IOException when an I/O error occurs.
+     */
+    public void createFile(String filePath, InputStream inputStream) throws IOException {
+        try (BufferedInputStream bufferedInput = new BufferedInputStream(inputStream, 8192)) {
+            try (FileOutputStream fileOutput = new FileOutputStream(new File(rootDirectory, filePath))) {
+                try (BufferedOutputStream bufferedOutput = new BufferedOutputStream(fileOutput, 8192)) {
+                    byte[] buffer = new byte[8192];
+                    while (bufferedInput.read(buffer) > 0) {
+                        bufferedOutput.write(buffer);
+                    }
+                    bufferedOutput.flush();
+                }
+                fileOutput.flush();
+            }
+        }
+    }
+
+    /**
      * Delete the directory.
      *
      * @param directoryPath the directory path.
@@ -82,6 +104,16 @@ public class ApplicationBean implements Serializable {
     public void delete(String directoryPath, String name) {
         File baseDirectory = new File(rootDirectory, directoryPath);
         File file = new File(baseDirectory, name);
+        deleteFile(file);
+    }
+    
+    /**
+     * Delete the file.
+     * 
+     * @param filePath the file path.
+     */
+    public void deleteFile(String filePath) {
+        File file = new File(rootDirectory, filePath);
         deleteFile(file);
     }
 
@@ -100,6 +132,17 @@ public class ApplicationBean implements Serializable {
             }
         }
         file.delete();
+    }
+
+    /**
+     * Is this an existing file?
+     *
+     * @param filePath the file path.
+     * @return true if the file exists, false otherwise.
+     */
+    public boolean existingFile(String filePath) {
+        File file = new File(rootDirectory, filePath);
+        return file.exists();
     }
 
     /**
@@ -204,5 +247,38 @@ public class ApplicationBean implements Serializable {
             }
         }
         return result;
+    }
+
+    /**
+     * Is the given path a directory?
+     * 
+     * @param directoryPath the directory path.
+     * @return true if it is, false otherwise.
+     */
+    public boolean isDirectory(String directoryPath) {
+        File directory = new File(rootDirectory, directoryPath);
+        return directory.isDirectory();
+    }
+
+    /**
+     * Update a file.
+     * 
+     * @param filePath the file path.
+     * @param inputStream the input stream.
+     * @throws IOException when an I/O error occurs.
+     */
+    public void updateFile(String filePath, InputStream inputStream) throws IOException {
+        try (BufferedInputStream bufferedInput = new BufferedInputStream(inputStream, 8192)) {
+            try (FileOutputStream fileOutput = new FileOutputStream(new File(rootDirectory, filePath))) {
+                try (BufferedOutputStream bufferedOutput = new BufferedOutputStream(fileOutput, 8192)) {
+                    byte[] buffer = new byte[8192];
+                    while (bufferedInput.read(buffer) > 0) {
+                        bufferedOutput.write(buffer);
+                    }
+                    bufferedOutput.flush();
+                }
+                fileOutput.flush();
+            }
+        }
     }
 }
