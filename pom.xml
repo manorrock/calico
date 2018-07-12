@@ -8,7 +8,6 @@
     <name>Manorrock Calico Project</name>
     <modules>
         <module>calico</module>
-        <module>model</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
