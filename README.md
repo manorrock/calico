@@ -1,9 +1,29 @@
 
-Manorrock Calico
-===============
+# Manorrock Calico
 
-REST API
---------
+Manorrock Calico delivers you with an online file store.
+
+Note the documentation for the master branch might show features that are NOT
+yet available as it is under active development. Please see the documentation
+for the release you are using in the links below.
+
+## Documentation for older release
+
+1. [Version 1.0.0](https://github.com/manorrock/calico/tree/v1.0.0)
+
+## Where do I get support?
+
+If you have a support contract file your issue and we will take it on within the
+time frame specified by your support contract. If you do not have a support 
+contract you are welcome to file an issue and we will take it on at our 
+convenience.
+
+## Is this open source?
+
+No, it is not, but you are welcome to have a look at the sources so you can see
+for yourself how this all works.
+
+## REST API
 
 * Create a file
 * Delete a file
