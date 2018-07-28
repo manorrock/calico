@@ -29,11 +29,11 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.faces.annotation.FacesConfig;
 
 /**
- * The JSF 2.3 activator bean.
+ * The JSF config bean.
  * 
  * @author Manfred Riem (mriem@manorrock.com)
  */
 @ApplicationScoped
 @FacesConfig(version = FacesConfig.Version.JSF_2_3)
-public class Jsf23ActivatorBean {
+public class JsfConfigBean {
 }
