@@ -13,6 +13,7 @@
     <packaging>war</packaging>
     <name>Manorrock Calico</name>
     <build>
+        <finalName>calico</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
