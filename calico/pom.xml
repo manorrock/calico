@@ -38,19 +38,16 @@
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
-            <version>8.0</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.manorrock.oyena</groupId>
             <artifactId>oyena-action</artifactId>
-            <version>2.3.3.0</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
