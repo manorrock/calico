@@ -9,6 +9,7 @@ for the release you are using in the links below.
 
 ## Documentation for older release
 
+1. [Version 1.0.1](https://github.com/manorrock/calico/tree/v1.0.1)
 1. [Version 1.0.0](https://github.com/manorrock/calico/tree/v1.0.0)
 
 ## Where do I get support?

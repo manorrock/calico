@@ -7,7 +7,7 @@
     <parent>
         <artifactId>project</artifactId>
         <groupId>com.manorrock.calico</groupId>
-        <version>1.0.0</version>
+        <version>1.0.1-SNAPSHOT</version>
     </parent>
     <artifactId>calico</artifactId>
     <packaging>war</packaging>
@@ -38,19 +38,16 @@
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
-            <version>8.0</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.manorrock.oyena</groupId>
             <artifactId>oyena-action</artifactId>
-            <version>2.3.3.0</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
