@@ -7,7 +7,7 @@
     <parent>
         <artifactId>project</artifactId>
         <groupId>com.manorrock.calico</groupId>
-        <version>1.0.1</version>
+        <version>1.0.3</version>
     </parent>
     <artifactId>calico</artifactId>
     <packaging>war</packaging>
