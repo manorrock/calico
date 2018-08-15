@@ -7,10 +7,13 @@ Note the documentation for the master branch might show features that are NOT
 yet available as it is under active development. Please see the documentation
 for the release you are using in the links below.
 
-## Documentation for older release
+## Documentation for older releases
 
-1. [Version 1.0.1](https://github.com/manorrock/calico/tree/v1.0.1)
-1. [Version 1.0.0](https://github.com/manorrock/calico/tree/v1.0.0)
+1. [Version 1.1.0](https://github.com/manorrock/calico/tree/v1.1.0)
+2. [Version 1.0.3](https://github.com/manorrock/calico/tree/v1.0.3)
+3. [Version 1.0.2](https://github.com/manorrock/calico/tree/v1.0.2)
+4. [Version 1.0.1](https://github.com/manorrock/calico/tree/v1.0.1)
+5. [Version 1.0.0](https://github.com/manorrock/calico/tree/v1.0.0)
 
 ## Where do I get support?
 
