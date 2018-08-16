@@ -15,13 +15,6 @@ for the release you are using in the links below.
 4. [Version 1.0.1](https://github.com/manorrock/calico/tree/v1.0.1)
 5. [Version 1.0.0](https://github.com/manorrock/calico/tree/v1.0.0)
 
-## Where do I get support?
-
-If you have a support contract file your issue and we will take it on within the
-time frame specified by your support contract. If you do not have a support 
-contract you are welcome to file an issue and we will take it on at our 
-convenience.
-
 ## REST API
 
 * Create a file
