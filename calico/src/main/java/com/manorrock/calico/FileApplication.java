@@ -36,7 +36,7 @@ import javax.ws.rs.core.Application;
  * @author Manfred Riem (mriem@manorrock.com)
  */
 @ApplicationPath("api")
-public class RestApplication extends Application {
+public class FileApplication extends Application {
 
     /**
      * Get the classes.
