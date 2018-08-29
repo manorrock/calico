@@ -41,6 +41,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
+import javax.security.enterprise.authentication.mechanism.http.CustomFormAuthenticationMechanismDefinition;
+import javax.security.enterprise.authentication.mechanism.http.LoginToContinue;
+import javax.security.enterprise.identitystore.DatabaseIdentityStoreDefinition;
+import javax.security.enterprise.identitystore.Pbkdf2PasswordHash;
 
 /**
  * The one and only application bean.
@@ -48,6 +52,23 @@ import javax.enterprise.context.ApplicationScoped;
  * @author Manfred Riem (mriem@manorrock.com)
  */
 @ApplicationScoped
+@CustomFormAuthenticationMechanismDefinition(
+        loginToContinue = @LoginToContinue(
+                loginPage = "/login.xhtml",
+                errorPage = ""
+        )
+)
+@DatabaseIdentityStoreDefinition(
+        dataSourceLookup = "jdbc/calico",
+        callerQuery = "select password from user_account where username = ?",
+        groupsQuery = "select group_name from user_group where username = ?",
+        hashAlgorithm = Pbkdf2PasswordHash.class,
+        hashAlgorithmParameters = {
+            "Pbkdf2PasswordHash.Iterations=3072",
+            "Pbkdf2PasswordHash.Algorithm=PBKDF2WithHmacSHA512",
+            "Pbkdf2PasswordHash.SaltSizeBytes=64"
+        }
+)
 public class ApplicationBean implements Serializable {
 
     /**
@@ -128,10 +149,10 @@ public class ApplicationBean implements Serializable {
         File file = new File(baseDirectory, name);
         deleteFile(file);
     }
-    
+
     /**
      * Delete the file.
-     * 
+     *
      * @param filePath the file path.
      */
     public void deleteFile(String filePath) {
@@ -273,7 +294,7 @@ public class ApplicationBean implements Serializable {
 
     /**
      * Is the given path a directory?
-     * 
+     *
      * @param directoryPath the directory path.
      * @return true if it is, false otherwise.
      */
@@ -284,7 +305,7 @@ public class ApplicationBean implements Serializable {
 
     /**
      * Update a file.
-     * 
+     *
      * @param filePath the file path.
      * @param inputStream the input stream.
      * @throws IOException when an I/O error occurs.
