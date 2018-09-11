@@ -77,7 +77,7 @@ public class StartupBean {
         parameters.put("Pbkdf2PasswordHash.SaltSizeBytes", "64");
         passwordHash.initialize(parameters);
         if (em.createQuery("SELECT object(o) FROM User AS o").getResultList().isEmpty()) {
-            User user = new User();
+            UserAccount user = new UserAccount();
             user.setUsername("admin");
             user.setPassword(passwordHash.generate("calico".toCharArray()));
             em.persist(user);

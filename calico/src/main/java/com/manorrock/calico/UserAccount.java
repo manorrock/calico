@@ -37,13 +37,13 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 /**
- * A User.
+ * A UserAccount.
  *
  * @author Manfred Riem (mriem@manorrock.com)
  */
 @Entity
 @Table(name = "user_account")
-public class User implements Serializable {
+public class UserAccount implements Serializable {
 
     /**
      * Stores the id.
