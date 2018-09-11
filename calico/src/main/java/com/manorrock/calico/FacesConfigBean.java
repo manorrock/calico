@@ -29,11 +29,11 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.faces.annotation.FacesConfig;
 
 /**
- * The JSF config bean.
+ * The FacesConfig bean.
  * 
  * @author Manfred Riem (mriem@manorrock.com)
  */
 @ApplicationScoped
 @FacesConfig(version = FacesConfig.Version.JSF_2_3)
-public class JsfConfigBean {
+public class FacesConfigBean {
 }
