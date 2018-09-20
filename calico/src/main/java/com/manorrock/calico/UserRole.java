@@ -26,65 +26,97 @@
  */
 package com.manorrock.calico;
 
-import java.util.HashMap;
-import java.util.Map;
-import javax.annotation.PostConstruct;
-import javax.ejb.Singleton;
-import javax.ejb.Startup;
-import javax.inject.Inject;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.security.enterprise.identitystore.PasswordHash;
+import java.io.Serializable;
+import java.math.BigInteger;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
 /**
- * The startup bean.
- * 
+ * A user role.
+ *
  * @author Manfred Riem (mriem@manorrock.com)
  */
-@Singleton
-@Startup
-public class StartupBean {
-    
+@Entity
+@Table(name = "user_role")
+public class UserRole implements Serializable {
+
     /**
-     * Stores the entity manager factory.
+     * Stores the id.
      */
-    @PersistenceContext(unitName = "calico")
-    private EntityManager em;
+    @SequenceGenerator(name = "user_role_id_seq", sequenceName = "user_role_id_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_role_id_seq")
+    @Column(name = "id")
+    @Id
+    private BigInteger id;
     
     /**
-     * Stores the password hash.
+     * Stores the role name.
      */
-    @Inject
-    private PasswordHash passwordHash;
+    @Column(name = "role_name")
+    private String roleName;
     
     /**
-     * Get the entity manager.
+     * Stores the username.
+     */
+    @Column(name = "username")
+    private String username;
+
+    /**
+     * Get the id.
      * 
-     * @return the entity manager.
+     * @return the id.
      */
-    public EntityManager getEntityManager() {
-        return em;
+    public BigInteger getId() {
+        return id;
     }
     
     /**
-     * Initialize.
+     * Get the role name.
+     * 
+     * @return the role name.
      */
-    @PostConstruct
-    public void initialize() {
-        Map<String, String> parameters = new HashMap<>();
-        parameters.put("Pbkdf2PasswordHash.Iterations", "3072");
-        parameters.put("Pbkdf2PasswordHash.Algorithm", "PBKDF2WithHmacSHA512");
-        parameters.put("Pbkdf2PasswordHash.SaltSizeBytes", "64");
-        passwordHash.initialize(parameters);
-        if (em.createQuery("SELECT object(o) FROM UserAccount AS o").getResultList().isEmpty()) {
-            UserAccount user = new UserAccount();
-            user.setUsername("admin");
-            user.setPassword(passwordHash.generate("calico".toCharArray()));
-            em.persist(user);
-            UserGroup group = new UserGroup();
-            group.setGroupName("user");
-            group.setUsername("admin");
-            em.persist(group);
-        }
+    public String getRolepName() {
+        return roleName;
+    }
+    
+    /**
+     * Get the username.
+     * 
+     * @return the username.
+     */
+    public String getUsername() {
+        return username;
+    }
+
+    /**
+     * Set the id.
+     * 
+     * @param id the id.
+     */
+    public void setId(BigInteger id) {
+        this.id = id;
+    }
+    
+    /**
+     * Set the role name.
+     * 
+     * @param roleName the role name.
+     */
+    public void setRoleName(String roleName) {
+        this.roleName = roleName;
+    }
+    
+    /**
+     * Set the username.
+     * 
+     * @param username the username.
+     */
+    public void setUsername(String username) {
+        this.username = username;
     }
 }
