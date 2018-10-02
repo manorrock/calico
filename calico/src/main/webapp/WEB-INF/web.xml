@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
+ 
 <web-app xmlns="http://java.sun.com/xml/ns/javaee"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
@@ -16,6 +16,26 @@
     <security-role>
         <role-name>user</role-name>
     </security-role>
+    <filter>
+        <filter-name>ActivationFilter</filter-name>
+        <filter-class>com.manorrock.calico.ActivationFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>ActivationFilter</filter-name>
+        <servlet-name>Faces Servlet</servlet-name>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
+        <dispatcher>INCLUDE</dispatcher>
+        <dispatcher>ERROR</dispatcher>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>ActivationFilter</filter-name>
+        <servlet-name>Oyena Action Servlet</servlet-name>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
+        <dispatcher>INCLUDE</dispatcher>
+        <dispatcher>ERROR</dispatcher>
+    </filter-mapping>    
     <servlet>
         <servlet-name>Faces Servlet</servlet-name>
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
@@ -28,7 +48,7 @@
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>*.xhtml</url-pattern>
     </servlet-mapping>
-    <welcome-file-list>  
+    <welcome-file-list>
         <welcome-file>index.xhtml</welcome-file>
-    </welcome-file-list>  
+    </welcome-file-list>
 </web-app>
