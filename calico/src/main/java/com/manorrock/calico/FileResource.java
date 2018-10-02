@@ -65,9 +65,9 @@ public class FileResource {
     public void FileResource() {
         enableApi = true;
         if (System.getenv("ENABLE_API") != null) {
-            enableApi = Boolean.getBoolean(System.getProperty("ENABLE_API"));
+            enableApi = Boolean.parseBoolean(System.getenv("ENABLE_API"));
         } else if (System.getProperty("ENABLE_API") != null) {
-            enableApi = Boolean.getBoolean(System.getProperty("ENABLE_API"));
+            enableApi = Boolean.getBoolean("ENABLE_API");
         }
     }
 

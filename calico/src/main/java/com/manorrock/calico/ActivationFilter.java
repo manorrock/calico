@@ -56,9 +56,9 @@ public class ActivationFilter implements Filter {
      */
     public ActivationFilter() {
         if (System.getenv("ENABLE_UI") != null) {
-            enableUI = Boolean.getBoolean(System.getProperty("ENABLE_UI"));
+            enableUI = Boolean.parseBoolean(System.getenv("ENABLE_UI"));
         } else if (System.getProperty("ENABLE_UI") != null) {
-            enableUI = Boolean.getBoolean(System.getProperty("ENABLE_UI"));
+            enableUI = Boolean.getBoolean("ENABLE_UI");
         }        
     }
 
