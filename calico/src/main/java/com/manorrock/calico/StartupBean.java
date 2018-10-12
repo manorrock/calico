@@ -83,26 +83,10 @@ public class StartupBean {
             user.setUsername("admin");
             user.setPassword(passwordHash.generate("calico".toCharArray()));
             em.persist(user);
-            UserGroup group = new UserGroup();
-            group.setGroupName("user");
-            group.setUsername("admin");
-            em.persist(group);
-        }
-        
-        List<UserGroup> groups = em.createQuery("SELECT object(o) FROM UserGroup AS o").getResultList();
-        if (!groups.isEmpty()) {
-            groups.forEach((group) -> {
-                Query findQuery = em.createQuery(
-                        "SELECT object(o) FROM UserRole AS o WHERE o.roleName = :roleName AND o.username = :username");
-                findQuery.setParameter("roleName", group.getGroupName());
-                findQuery.setParameter("username", group.getUsername());
-                if (findQuery.getResultList().isEmpty()) {
-                    UserRole userRole = new UserRole();
-                    userRole.setRoleName(group.getGroupName());
-                    userRole.setUsername(group.getUsername());
-                    em.persist(userRole);
-                }
-            });
+            UserRole userRole = new UserRole();
+            userRole.setRoleName("user");
+            userRole.setUsername("admin");
+            em.persist(userRole);
         }
     }
 }

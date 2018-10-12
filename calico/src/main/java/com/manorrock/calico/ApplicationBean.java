@@ -61,7 +61,7 @@ import javax.security.enterprise.identitystore.Pbkdf2PasswordHash;
 @DatabaseIdentityStoreDefinition(
         dataSourceLookup = "jdbc/calico",
         callerQuery = "select password from user_account where username = ?",
-        groupsQuery = "select group_name from user_group where username = ?",
+        groupsQuery = "select role_name from user_role where username = ?",
         hashAlgorithm = Pbkdf2PasswordHash.class,
         hashAlgorithmParameters = {
             "Pbkdf2PasswordHash.Iterations=3072",
