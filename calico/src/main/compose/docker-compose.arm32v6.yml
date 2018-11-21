@@ -6,7 +6,3 @@ services:
     - "8080:8080"
     volumes:
     - ./data/calico:/mnt
-  postgres:
-    image: postgres:10.3
-    volumes:
-    - ./data/postgres:/var/lib/postgresql/data
