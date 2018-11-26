@@ -41,10 +41,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
-import javax.security.enterprise.authentication.mechanism.http.CustomFormAuthenticationMechanismDefinition;
-import javax.security.enterprise.authentication.mechanism.http.LoginToContinue;
-import javax.security.enterprise.identitystore.DatabaseIdentityStoreDefinition;
-import javax.security.enterprise.identitystore.Pbkdf2PasswordHash;
 
 /**
  * The one and only application bean.
@@ -52,23 +48,6 @@ import javax.security.enterprise.identitystore.Pbkdf2PasswordHash;
  * @author Manfred Riem (mriem@manorrock.com)
  */
 @ApplicationScoped
-@CustomFormAuthenticationMechanismDefinition(
-        loginToContinue = @LoginToContinue(
-                loginPage = "/login.xhtml",
-                errorPage = ""
-        )
-)
-@DatabaseIdentityStoreDefinition(
-        dataSourceLookup = "jdbc/calico",
-        callerQuery = "select password from user_account where username = ?",
-        groupsQuery = "select role_name from user_role where username = ?",
-        hashAlgorithm = Pbkdf2PasswordHash.class,
-        hashAlgorithmParameters = {
-            "Pbkdf2PasswordHash.Iterations=3072",
-            "Pbkdf2PasswordHash.Algorithm=PBKDF2WithHmacSHA512",
-            "Pbkdf2PasswordHash.SaltSizeBytes=64"
-        }
-)
 public class ApplicationBean implements Serializable {
 
     /**
