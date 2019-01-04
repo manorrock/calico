@@ -1,5 +1,5 @@
 /*
- *  Copyright (c) 2002-2018, Manorrock.com. All Rights Reserved.
+ *  Copyright (c) 2002-2019, Manorrock.com. All Rights Reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
  *  modification, are permitted provided that the following conditions are met:
@@ -49,40 +49,10 @@ import javax.ws.rs.core.Response;
 public class FileResource {
 
     /**
-     * Stores if we should enable the API.
-     */
-    private boolean enableApi;
-
-    /**
      * Stores the application.
      */
     @Inject
     private ApplicationBean application;
-
-    /**
-     * Constructor.
-     */
-    public void FileResource() {
-        enableApi = true;
-        if (System.getenv("ENABLE_API") != null) {
-            enableApi = Boolean.parseBoolean(System.getenv("ENABLE_API"));
-        } else if (System.getProperty("ENABLE_API") != null) {
-            enableApi = Boolean.getBoolean("ENABLE_API");
-        }
-    }
-
-    /**
-     * Check if we should be enabled.
-     *
-     * @return a response if we are NOT enabled, null otherwise.
-     */
-    public Response checkEnable() {
-        Response result = null;
-        if (!enableApi) {
-            result = Response.status(Response.Status.NOT_FOUND).build();
-        }
-        return result;
-    }
 
     /**
      * Create a file.
@@ -95,17 +65,14 @@ public class FileResource {
     @Path("{path:.+}")
     @POST
     public Response createFile(@PathParam("path") String path, InputStream inputStream) {
-        Response result = checkEnable();
-        if (result == null) {
-            result = Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
-            if (application.existingFile(path)) {
-                result = Response.status(Response.Status.BAD_REQUEST).build();
-            } else {
-                try {
-                    application.createFile(path, inputStream);
-                    result = Response.status(201).header("Location", path).build();
-                } catch (IOException ioe) {
-                }
+        Response result = Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
+        if (application.existingFile(path)) {
+            result = Response.status(Response.Status.BAD_REQUEST).build();
+        } else {
+            try {
+                application.createFile(path, inputStream);
+                result = Response.status(201).header("Location", path).build();
+            } catch (IOException ioe) {
             }
         }
         return result;
@@ -120,14 +87,11 @@ public class FileResource {
     @DELETE
     @Path("{path:.+}")
     public Response deleteFile(@PathParam("path") String path) {
-        Response result = checkEnable();
-        if (result == null) {
-            result = Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
-            if (!application.existingFile(path)) {
-                result = Response.status(Response.Status.BAD_REQUEST).build();
-            } else {
-                application.deleteFile(path);
-            }
+        Response result = Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
+        if (!application.existingFile(path)) {
+            result = Response.status(Response.Status.BAD_REQUEST).build();
+        } else {
+            application.deleteFile(path);
         }
         return result;
     }
@@ -141,15 +105,13 @@ public class FileResource {
     @GET
     @Path("{path:.+}")
     public Response getFile(@PathParam("path") String path) {
-        Response result = checkEnable();
-        if (result == null) {
-            if (!application.existingFile(path)) {
-                result = Response.status(404).build();
-            } else if (application.isDirectory(path)) {
-                result = Response.ok(application.getDirectory(path), MediaType.APPLICATION_JSON_TYPE).build();
-            } else {
-                result = Response.ok(application.getInputStream(path), MediaType.APPLICATION_OCTET_STREAM_TYPE).build();
-            }
+        Response result;
+        if (!application.existingFile(path)) {
+            result = Response.status(404).build();
+        } else if (application.isDirectory(path)) {
+            result = Response.ok(application.getDirectory(path), MediaType.APPLICATION_JSON_TYPE).build();
+        } else {
+            result = Response.ok(application.getInputStream(path), MediaType.APPLICATION_OCTET_STREAM_TYPE).build();
         }
         return result;
     }
@@ -175,17 +137,14 @@ public class FileResource {
     @Path("{path:.+}")
     @PUT
     public Response updateFile(@PathParam("path") String path, InputStream inputStream) {
-        Response result = checkEnable();
-        if (result == null) {
-            Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
-            if (!application.existingFile(path)) {
-                result = Response.status(Response.Status.BAD_REQUEST).build();
-            } else {
-                try {
-                    application.updateFile(path, inputStream);
-                    result = Response.ok().build();
-                } catch (IOException ioe) {
-                }
+        Response result = Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
+        if (!application.existingFile(path)) {
+            result = Response.status(Response.Status.BAD_REQUEST).build();
+        } else {
+            try {
+                application.updateFile(path, inputStream);
+                result = Response.ok().build();
+            } catch (IOException ioe) {
             }
         }
         return result;
