@@ -71,6 +71,7 @@
     </developers>
     <modules>
         <module>calico</module>
+        <module>calico-ui</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

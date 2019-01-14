@@ -23,37 +23,35 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package com.manorrock.calico;
+package com.manorrock.calico.ui;
 
 import java.io.IOException;
-import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
-import javax.servlet.http.HttpServletRequest;
 
 /**
- * The "Delete a file/directory" bean.
+ * The "Create a directory" bean.
  *
  * @author Manfred Riem (mriem@manorrock.com)
  */
-@Named("deleteFileBean")
+@Named("createDirectoryBean")
 @RequestScoped
-public class DeleteFileBean {
-
+public class CreateDirectoryBean {
+    
     /**
      * Stores the application.
      */
     @Inject
     private ApplicationBean application;
-    
+
     /**
      * Stores the directory path.
      */
-    private String directoryPath;
-    
+    private String directoryPath = "";
+
     /**
      * Stores the External context.
      */
@@ -72,18 +70,12 @@ public class DeleteFileBean {
     private String name;
 
     /**
-     * Stores the HTTP servlet request.
-     */
-    @Inject
-    private HttpServletRequest request;
-
-    /**
-     * Delete the file/directory.
+     * Create the directory.
      *
      * @return ""
      */
-    public String delete() {
-        application.delete(directoryPath, name);
+    public String create() {
+        application.createDirectory(directoryPath, name);
         StringBuilder redirectUrl = new StringBuilder();
         redirectUrl.append(externalContext.getRequestScheme());
         redirectUrl.append("://");
@@ -119,11 +111,11 @@ public class DeleteFileBean {
     }
 
     /**
-     * Initialize the bean.
+     * Set the name.
+     *
+     * @param name the name.
      */
-    @PostConstruct
-    public void initialize() {
-        name = request.getParameter("filename");
-        directoryPath = request.getParameter("directoryPath");
+    public void setName(String name) {
+        this.name = name;
     }
 }

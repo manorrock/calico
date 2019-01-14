@@ -9,11 +9,11 @@
         <groupId>com.manorrock.calico</groupId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
-    <artifactId>calico</artifactId>
+    <artifactId>calico-ui</artifactId>
     <packaging>war</packaging>
-    <name>Manorrock Calico</name>
+    <name>Manorrock Calico UI</name>
     <build>
-        <finalName>calico</finalName>
+        <finalName>calico-ui</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -39,6 +39,11 @@
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.manorrock.oyena</groupId>
+            <artifactId>oyena-action</artifactId>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>junit</groupId>

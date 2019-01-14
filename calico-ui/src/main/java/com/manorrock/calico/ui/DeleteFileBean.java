@@ -23,35 +23,37 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package com.manorrock.calico;
+package com.manorrock.calico.ui;
 
 import java.io.IOException;
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.servlet.http.HttpServletRequest;
 
 /**
- * The "Create a directory" bean.
+ * The "Delete a file/directory" bean.
  *
  * @author Manfred Riem (mriem@manorrock.com)
  */
-@Named("createDirectoryBean")
+@Named("deleteFileBean")
 @RequestScoped
-public class CreateDirectoryBean {
-    
+public class DeleteFileBean {
+
     /**
      * Stores the application.
      */
     @Inject
     private ApplicationBean application;
-
+    
     /**
      * Stores the directory path.
      */
-    private String directoryPath = "";
-
+    private String directoryPath;
+    
     /**
      * Stores the External context.
      */
@@ -70,12 +72,18 @@ public class CreateDirectoryBean {
     private String name;
 
     /**
-     * Create the directory.
+     * Stores the HTTP servlet request.
+     */
+    @Inject
+    private HttpServletRequest request;
+
+    /**
+     * Delete the file/directory.
      *
      * @return ""
      */
-    public String create() {
-        application.createDirectory(directoryPath, name);
+    public String delete() {
+        application.delete(directoryPath, name);
         StringBuilder redirectUrl = new StringBuilder();
         redirectUrl.append(externalContext.getRequestScheme());
         redirectUrl.append("://");
@@ -111,11 +119,11 @@ public class CreateDirectoryBean {
     }
 
     /**
-     * Set the name.
-     *
-     * @param name the name.
+     * Initialize the bean.
      */
-    public void setName(String name) {
-        this.name = name;
+    @PostConstruct
+    public void initialize() {
+        name = request.getParameter("filename");
+        directoryPath = request.getParameter("directoryPath");
     }
 }

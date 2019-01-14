@@ -23,7 +23,7 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package com.manorrock.calico;
+package com.manorrock.calico.ui;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;

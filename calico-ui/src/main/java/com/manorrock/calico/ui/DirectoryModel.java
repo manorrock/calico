@@ -23,17 +23,65 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package com.manorrock.calico;
+package com.manorrock.calico.ui;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.faces.annotation.FacesConfig;
+import java.io.Serializable;
+import java.util.List;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- * The FacesConfig bean.
- * 
+ * A directory model.
+ *
  * @author Manfred Riem (mriem@manorrock.com)
  */
-@ApplicationScoped
-@FacesConfig(version = FacesConfig.Version.JSF_2_3)
-public class FacesConfigBean {
+@XmlRootElement(name = "directory")
+public class DirectoryModel implements Serializable {
+
+    /**
+     * Stores the files.
+     */
+    private List<FileModel> files;
+
+    /**
+     * Stores the directory name.
+     */
+    private String name;
+
+    /**
+     * Get the files.
+     *
+     * @return the files.
+     */
+    @XmlElement(name = "files", type = FileModel.class)
+    public List<FileModel> getFiles() {
+        return files;
+    }
+
+    /**
+     * Get the name.
+     *
+     * @return the name.
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * Set the files.
+     *
+     * @param files the files.
+     */
+    public void setFiles(List<FileModel> files) {
+        this.files = files;
+    }
+
+    /**
+     * Set the name.
+     *
+     * @param name the name.
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
 }
