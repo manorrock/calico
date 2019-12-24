@@ -1,11 +1,4 @@
-/model/target/
-/rest/nbactions.xml
-/rest/target/
-/webapp/target/
-/webapp/dependency-reduced-pom.xml
-/webapp/nbactions.xml
-/calico/target/
-/calico/nb-configuration.xml
-/target/
-/calico-ui/target/
-/calico-standalone/target/
+dependency-reduced-pom.xml
+nbactions.xml
+target/
+nb-configuration.xml

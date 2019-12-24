@@ -36,6 +36,11 @@
     </build>
     <dependencies>
         <dependency>
+            <groupId>com.manorrock.oyena</groupId>
+            <artifactId>oyena-action</artifactId>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
             <scope>provided</scope>
