@@ -1,3 +1,4 @@
-FROM manorrock/payara:micro
+FROM piranhacloud/server:snapshot
+COPY target/calico.war /usr/local/piranha/webapps/ROOT.war
+WORKDIR /usr/local/piranha/bin
 ENV ROOT_DIRECTORY=/mnt
-COPY target/calico.war /usr/local/payara/deployments/ROOT.war
