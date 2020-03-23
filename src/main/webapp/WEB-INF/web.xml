@@ -15,6 +15,14 @@
             <param-name>javax.ws.rs.Application</param-name>
             <param-value>com.manorrock.calico.FileApplication</param-value>
         </init-param>
+    </servlet>    
+    <servlet>
+        <servlet-name>Oyena Action Servlet</servlet-name>
+        <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+        <init-param>
+            <param-name>javax.faces.LIFECYCLE_ID</param-name>
+            <param-value>com.manorrock.oyena.action.ActionLifecycle</param-value>
+        </init-param>
     </servlet>
     <servlet-mapping>
         <servlet-name>Jersey</servlet-name>
