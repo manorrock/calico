@@ -21,4 +21,4 @@ for the release you are using in the links below.
 
 ## REST API
 
-Click [here](calico/README.md) for the REST API.
+Click [here](REST.md) for the REST API.
