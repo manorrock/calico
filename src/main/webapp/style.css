@@ -74,6 +74,7 @@ th {
     color: #ffffff;
     font-family: "Times New Roman", "Arial";
     font-size: medium;
+    margin: 2px;
     text-decoration:none;
 }
 .button:hover {
