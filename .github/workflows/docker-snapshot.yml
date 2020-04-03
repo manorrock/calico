@@ -25,5 +25,5 @@ jobs:
         docker push manorrock/calico:snapshot
     - name: Build ARM32v6 image
       run: |
-        docker build -f src/main/docker/Dockerfile.ARM32v6 -t manorrock/calico:arm32v6-snapshot .
+        docker build -f src/main/docker/Dockerfile.arm32v6 -t manorrock/calico:arm32v6-snapshot .
         docker push manorrock/calico:arm32v6-snapshot
