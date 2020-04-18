@@ -26,7 +26,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>Jersey</servlet-name>
-        <url-pattern>/repo/*</url-pattern>
+        <url-pattern>/api/*</url-pattern>
     </servlet-mapping> 
     <servlet-mapping>
         <servlet-name>Oyena Action Servlet</servlet-name>
