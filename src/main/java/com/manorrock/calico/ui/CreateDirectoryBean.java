@@ -25,6 +25,7 @@
  */
 package com.manorrock.calico.ui;
 
+import com.manorrock.calico.ApplicationBean;
 import java.io.IOException;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.context.ExternalContext;

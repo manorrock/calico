@@ -25,6 +25,7 @@
  */
 package com.manorrock.calico.ui;
 
+import com.manorrock.calico.ApplicationBean;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.IOException;

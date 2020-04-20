@@ -25,7 +25,8 @@
  */
 package com.manorrock.calico.ui;
 
-import com.manorrock.oyena.action.ActionMapping;
+import com.manorrock.calico.ApplicationBean;
+import com.manorrock.calico.DirectoryModel;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Serializable;
@@ -37,6 +38,7 @@ import javax.inject.Named;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.Part;
+import org.omnifaces.oyena.action.ActionMapping;
 
 /**
  * The browse bean.
