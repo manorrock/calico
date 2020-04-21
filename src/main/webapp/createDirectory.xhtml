@@ -13,7 +13,8 @@
     </head>
     <h:body>
         <f:view transient="true"/>
-        <b>Create directory</b>
+        <ui:include src="/WEB-INF/ui/header.xhtml"/>
+        <h2>Create directory</h2>
         <h:messages/>
         <h:form id="form_create_directory">
             <h:inputText value="#{createDirectoryBean.name}"/>

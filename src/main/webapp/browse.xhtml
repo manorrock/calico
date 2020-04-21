@@ -12,7 +12,8 @@
     </head>
     <body>
         <f:view transient="true"/>
-        <b><h:outputText value="#{browseBean.directoryPath}"/></b>
+        <ui:include src="/WEB-INF/ui/header.xhtml"/>
+        <h2><h:outputText value="#{browseBean.directoryPath}"/></h2>
         <div style="float: right; vertical-align: bottom;">
             <a href="#{facesContext.externalContext.requestContextPath}/createDirectory.xhtml?directoryPath=#{browseBean.directoryPath}">
                 Create directory
