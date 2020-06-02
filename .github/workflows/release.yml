@@ -32,5 +32,5 @@ jobs:
         TAG=${GITHUB_REF}
         INDEX=${TAG%v*}
         VERSION=${TAG:${#INDEX}}
-        docker build -f src/main/docker/Dockerfile.ARM32v6 -t manorrock/calico:arm32v6-$VERSION .
+        docker build -f src/main/docker/Dockerfile.arm32v6 -t manorrock/calico:arm32v6-$VERSION .
         docker push manorrock/calico:arm32v6-$VERSION
