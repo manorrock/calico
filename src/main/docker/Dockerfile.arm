@@ -1,10 +1,15 @@
 #
-# Use Debian
+# Use Raspbian
 #
-FROM debian
+FROM balenalib/raspberry-pi
 
 #
-# Update Debian and install curl, dnsutils, gnupg2, gzip,
+# Setup for cross-platform building.
+#
+RUN ["cross-build-start"]
+
+#
+# Update Raspbian and install curl, dnsutils, gnupg2, gzip, 
 # software-properties-common and tar.
 #
 RUN apt-get update && \
@@ -13,13 +18,13 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 #
-# Install AdoptOpenJDK 11.
+# Install Zulu 11.
 #
 RUN cd /usr/local && \
-    curl --insecure -L -O https://github.com/AdoptOpenJDK/openjdk11-binaries/releases/download/jdk-11.0.7%2B10/OpenJDK11U-jdk_x64_linux_hotspot_11.0.7_10.tar.gz && \
-    tar xfvz OpenJDK11U-jdk_x64_linux_hotspot_11.0.7_10.tar.gz && \
-    mv jdk-11.0.7+10 jdk && \
-    rm OpenJDK11U-jdk_x64_linux_hotspot_11.0.7_10.tar.gz
+    curl --insecure -L -O https://cdn.azul.com/zulu-embedded/bin/zulu11.37.48-ca-jdk11.0.6-linux_aarch32hf.tar.gz && \
+    tar xfvz zulu11.37.48-ca-jdk11.0.6-linux_aarch32hf.tar.gz && \
+    mv zulu11.37.48-ca-jdk11.0.6-linux_aarch32hf jdk && \
+    rm zulu11.37.48-ca-jdk11.0.6-linux_aarch32hf.tar.gz
 
 #
 # Setup PATH
@@ -48,6 +53,11 @@ WORKDIR /usr/local/tomcat
 # Copy Manorrock Calico into Tomcat 9.
 #
 COPY target/calico.war /usr/local/tomcat/webapps/ROOT.war
+
+#
+# End cross platform building.
+#
+RUN ["cross-build-end"]
 
 #
 # Setup command to start Tomcat with console output.
