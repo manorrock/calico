@@ -5,6 +5,7 @@ on:
       - '*'
     tags-ignore:
       - 'release-*'
+      - 'v*'
 jobs:
   build:
     runs-on: ubuntu-latest
