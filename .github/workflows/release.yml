@@ -27,10 +27,21 @@ jobs:
         VERSION=${TAG:${#INDEX}}
         docker build -f src/main/docker/Dockerfile.amd64 -t manorrock/calico:$VERSION .
         docker push manorrock/calico:$VERSION
-    - name: Build ARM32v6 image
+    - name: Build arm image
       run: |
         TAG=${GITHUB_REF}
         INDEX=${TAG%v*}
         VERSION=${TAG:${#INDEX}}
-        docker build -f src/main/docker/Dockerfile.arm32v6 -t manorrock/calico:arm32v6-$VERSION .
-        docker push manorrock/calico:arm32v6-$VERSION
+        docker build -f src/main/docker/Dockerfile.arm -t manorrock/calico:arm-$VERSION .
+        docker push manorrock/calico:arm-$VERSION
+    - name: Push Docker manifest
+      run: |
+        export DOCKER_CLI_EXPERIMENTAL=enabled
+        docker manifest create manorrock/calico:$VERSION \
+          manorrock/calico:amd64-$VERSION \
+          manorrock/calico:arm-$VERSION
+        docker manifest annotate manorrock/calico:$VERSION \
+          manorrock/calico:amd64-$VERSION --os linux --arch amd64
+        docker manifest annotate manorrock/calico:$VERSION \
+          manorrock/calico:arm-$VERSION --os linux --arch arm
+        docker manifest push manorrock/calico:$VERSION
