@@ -175,7 +175,7 @@ public class ApplicationBean implements Serializable {
         String rootDirectoryFilename = System.getenv("ROOT_DIRECTORY");
         if (rootDirectoryFilename == null) {
             rootDirectoryFilename = System.getProperty("ROOT_DIRECTORY",
-                    System.getProperty("user.home") + "/.manorrock/calico");
+                    System.getProperty("user.home") + "/.manorrock/calico/files");
         }
         rootDirectory = new File(rootDirectoryFilename);
         if (!rootDirectory.exists()) {
