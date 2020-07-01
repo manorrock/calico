@@ -5,9 +5,15 @@ Manorrock Calico delivers you with an online file store server.
 
 ### Using the Docker image to deploy the online file store server.
 
-  docker run --rm -d -p 8080:8080 -v $PWD:/mnt manorrock/calico:VERSION
+```shell
+  docker run --rm -d -p 8080:8080 -v $PWD:/root/.manorrock/calico manorrock/calico:VERSION
+```
 
 Replace VERSION with the version of Manorrock Calico you want to run.
+
+> _Note_ in the command line above we have mapped the `/root/.manorrock/calico`
+> directory to point to the current directory so we can persist outside of the
+> Docker container.
 
 ## REST API
 
