@@ -66,21 +66,3 @@ th {
     border-bottom-width: 1px;
     color: #0000cc;
 }
-
-.button {
-    background-color: #7892c2;
-    display: inline-block;
-    cursor: pointer;
-    color: #ffffff;
-    font-family: "Times New Roman", "Arial";
-    font-size: medium;
-    margin: 2px;
-    text-decoration:none;
-}
-.button:hover {
-    background-color: #476e9e;
-}
-.button:active {
-    position:relative;
-    top:1px;
-}
