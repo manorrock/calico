@@ -66,3 +66,12 @@ th {
     border-bottom-width: 1px;
     color: #0000cc;
 }
+
+p.footer {
+    border-top-color: #0000cc;
+    border-top-style: solid;
+    border-top-width: 1px;
+    font-size: 12px;
+    padding-top: 5px;
+    text-align: center;
+}
