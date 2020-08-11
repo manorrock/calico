@@ -1,84 +1,84 @@
-<?xml version='1.0' encoding='UTF-8' ?>
+<?xml version='1.0' encoding='UTF-8'?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-    <head>
-        <title>Directory - <h:outputText value="#{browseBean.directory.name}"/></title>
-        <link href="#{facesContext.externalContext.requestContextPath}/style.css" rel="stylesheet" type="text/css"/>
-    </head>
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
     <body>
-        <f:view transient="true"/>
-        <ui:include src="/WEB-INF/ui/header.xhtml"/>
-        <h2><h:outputText value="#{browseBean.directoryPath}"/></h2>
-        <div style="float: right; vertical-align: bottom;">
-            <a href="#{facesContext.externalContext.requestContextPath}/createDirectory.xhtml?directoryPath=#{browseBean.directoryPath}">
-                <button>Create Directory</button>
-            </a>
-        </div>
-        <table width="100%">
-            <tr>
-                <th>&#160;</th>
-                <th>Name</th>
-                <th>Actions</th>
-            </tr>
-            <tr>
-                <td>&#160;</td>
-                <td>
-                    <h:form id="form_back">
-                        <h:outputLink value="#{facesContext.externalContext.requestContextPath}/browse/#{browseBean.parentPath}" rendered="#{not empty browseBean.directoryPath}">
-                            <h:outputText value=".."/>
-                        </h:outputLink>
-                    </h:form>
-                </td>
-            </tr>
-            <ui:repeat value="#{browseBean.directory.files}" var="file" varStatus="status">
-                <tr>
-                    <h:form id="form">
+        <ui:composition template="/WEB-INF/ui/template.xhtml">
+            <ui:define name="content">
+                <f:view transient="true"/>
+                <h2><h:outputText value="#{browseBean.directoryPath}"/></h2>
+                <div style="float: right; vertical-align: bottom;">
+                    <a href="#{facesContext.externalContext.requestContextPath}/createDirectory.xhtml?directoryPath=#{browseBean.directoryPath}">
+                        <button>Create Directory</button>
+                    </a>
+                </div>
+                <table width="100%">
+                    <tr>
+                        <th>&#160;</th>
+                        <th>Name</th>
+                        <th>Actions</th>
+                    </tr>
+                    <tr>
                         <td>&#160;</td>
                         <td>
-                            <h:outputLink value="#{facesContext.externalContext.requestContextPath}/download/#{browseBean.directoryPath}/#{file.name}" rendered="#{not empty browseBean.directoryPath}">
-                                <h:outputText value="#{file.name}" rendered="#{not file.attributes.directory}"/>
-                            </h:outputLink>
-                            <h:outputLink value="#{facesContext.externalContext.requestContextPath}/download/#{file.name}" rendered="#{empty browseBean.directoryPath}">
-                                <h:outputText value="#{file.name}" rendered="#{not file.attributes.directory}"/>
-                            </h:outputLink>
-                            <h:outputLink id="button_#{status.index}_a" value="#{facesContext.externalContext.requestContextPath}/browse/#{browseBean.directoryPath}/#{file.name}" rendered="#{file.attributes.directory and not empty browseBean.directoryPath}">
-                                <h:outputText value="#{file.name}"/>
-                            </h:outputLink>
-                            <h:outputLink id="button_#{status.index}_b" value="#{facesContext.externalContext.requestContextPath}/browse/#{file.name}" rendered="#{file.attributes.directory and empty browseBean.directoryPath}">
-                                <h:outputText value="#{file.name}"/>
-                            </h:outputLink>
+                            <h:form id="form_back">
+                                <h:outputLink value="#{facesContext.externalContext.requestContextPath}/browse/#{browseBean.parentPath}" rendered="#{not empty browseBean.directoryPath}">
+                                    <h:outputText value=".."/>
+                                </h:outputLink>
+                            </h:form>
                         </td>
-                        <td>
-                            <h:outputLink value="#{facesContext.externalContext.requestContextPath}/deleteFile.xhtml">
-                                Delete
-                                <f:param name="directoryPath" value="#{browseBean.directoryPath}"/>
-                                <f:param name="filename" value="#{file.name}"/>
-                            </h:outputLink>
-                        </td>
-                    </h:form>
-                </tr>
-            </ui:repeat>
-            <tr>
-                <th width="25px">&#160;</th>
-                <th>&#160;</th>
-                <th>&#160;</th>
-            </tr>
-        </table>
-        <div>
-            <div style="float: left; vertical-align: bottom;">
-                <h:form prependId="false" id="upload" enctype="multipart/form-data">
-                    <h:inputFile class="button" id="file"/>
-                    <h:inputHidden id="directoryPath" value="#{browseBean.directoryPath}"/>
-                    <h:commandButton class="button" id="button" value="Upload"/>
-                </h:form>
-            </div>
-        </div>
-        <br/>
-        <ui:include src="/WEB-INF/ui/footer.xhtml"/>
+                    </tr>
+                    <ui:repeat value="#{browseBean.directory.files}" var="file" varStatus="status">
+                        <tr>
+                            <h:form id="form">
+                                <td>&#160;</td>
+                                <td>
+                                    <h:outputLink value="#{facesContext.externalContext.requestContextPath}/download/#{browseBean.directoryPath}/#{file.name}" rendered="#{not empty browseBean.directoryPath}">
+                                        <h:outputText value="#{file.name}" rendered="#{not file.attributes.directory}"/>
+                                    </h:outputLink>
+                                    <h:outputLink value="#{facesContext.externalContext.requestContextPath}/download/#{file.name}" rendered="#{empty browseBean.directoryPath}">
+                                        <h:outputText value="#{file.name}" rendered="#{not file.attributes.directory}"/>
+                                    </h:outputLink>
+                                    <h:outputLink id="button_#{status.index}_a" value="#{facesContext.externalContext.requestContextPath}/browse/#{browseBean.directoryPath}/#{file.name}" rendered="#{file.attributes.directory and not empty browseBean.directoryPath}">
+                                        <h:outputText value="#{file.name}"/>
+                                    </h:outputLink>
+                                    <h:outputLink id="button_#{status.index}_b" value="#{facesContext.externalContext.requestContextPath}/browse/#{file.name}" rendered="#{file.attributes.directory and empty browseBean.directoryPath}">
+                                        <h:outputText value="#{file.name}"/>
+                                    </h:outputLink>
+                                </td>
+                                <td>
+                                    <h:outputLink value="#{facesContext.externalContext.requestContextPath}/deleteFile.xhtml">
+                                        Delete
+                                        <f:param name="directoryPath" value="#{browseBean.directoryPath}"/>
+                                        <f:param name="filename" value="#{file.name}"/>
+                                    </h:outputLink>
+                                </td>
+                            </h:form>
+                        </tr>
+                    </ui:repeat>
+                    <tr>
+                        <th width="25px">&#160;</th>
+                        <th>&#160;</th>
+                        <th>&#160;</th>
+                    </tr>
+                </table>
+                <div>
+                    <div style="float: left; vertical-align: bottom;">
+                        <h:form prependId="false" id="upload" enctype="multipart/form-data">
+                            <h:inputFile class="button" id="file"/>
+                            <h:inputHidden id="directoryPath" value="#{browseBean.directoryPath}"/>
+                            <h:commandButton class="button" id="button" value="Upload"/>
+                        </h:form>
+                    </div>
+                </div>
+                <br/>
+                <ui:include src="/WEB-INF/ui/footer.xhtml"/>
+            </ui:define>
+        </ui:composition>
     </body>
 </html>
