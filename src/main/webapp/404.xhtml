@@ -4,19 +4,18 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-    <head>
-        <title>404</title>
-    </head>
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
     <body>
-        <f:view transient="true"/>
-        <ui:include src="/WEB-INF/ui/header.xhtml"/>
-        <h2>404</h2>
-        <p>
-            It looks like we cannot find what you are looking for.
-        </p>
-        <br/>
-        <ui:include src="/WEB-INF/ui/footer.xhtml"/>
+        <ui:composition template="/WEB-INF/ui/template.xhtml">
+            <ui:define name="content">
+                <f:view transient="true"/>
+                <h1>404</h1>
+                <p>
+                    It looks like we cannot find what you are looking for.
+                </p>
+                <br/>
+            </ui:define>
+        </ui:composition>
     </body>
 </html>
