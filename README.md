@@ -19,10 +19,10 @@ Replace VERSION with the version of Manorrock Calico you want to run.
 
 Click [here](REST.md) for the REST API.
 
-## Testing SNAPSHOT versions
+## Testing nightly versions
 
-Every night we push a SNAPSHOT version to Docker Hub. If you want to give the
-version under development a test drive use `snapshot` as the version for the
+Every night we push a nigthly version to Docker Hub. If you want to give the
+version under development a test drive use `latest` as the version for the
 instructions above.
 
 ## Important notice

@@ -24,20 +24,20 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
     - name: Build amd64 image
       run: |
-        docker build -f src/main/docker/Dockerfile.amd64 -t manorrock/calico:amd64-snapshot .
-        docker push manorrock/calico:amd64-snapshot
+        docker build -f src/main/docker/Dockerfile.amd64 -t manorrock/calico:amd64-latest .
+        docker push manorrock/calico:amd64-latest
     - name: Build arm32v6 image
       run: |
-        docker build -f src/main/docker/Dockerfile.arm32v6 -t manorrock/calico:arm32v6-snapshot .
-        docker push manorrock/calico:arm32v6-snapshot
+        docker build -f src/main/docker/Dockerfile.arm32v6 -t manorrock/calico:arm32v6-latest .
+        docker push manorrock/calico:arm32v6-latest
     - name: Push Docker manifest
       run: |
         export DOCKER_CLI_EXPERIMENTAL=enabled
-        docker manifest create manorrock/calico:snapshot \
-          manorrock/calico:amd64-snapshot \
-          manorrock/calico:arm32v6-snapshot
-        docker manifest annotate manorrock/calico:snapshot \
-          manorrock/calico:amd64-snapshot --os linux --arch amd64
-        docker manifest annotate manorrock/calico:snapshot \
-          manorrock/calico:arm32v6-snapshot --os linux --arch arm
-        docker manifest push manorrock/calico:snapshot
+        docker manifest create manorrock/calico:latest \
+          manorrock/calico:amd64-latest \
+          manorrock/calico:arm32v6-latest
+        docker manifest annotate manorrock/calico:latest \
+          manorrock/calico:amd64-latest --os linux --arch amd64
+        docker manifest annotate manorrock/calico:latest \
+          manorrock/calico:arm32v6-latest --os linux --arch arm
+        docker manifest push manorrock/calico:latest
