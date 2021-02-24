@@ -11,6 +11,8 @@ Manorrock Calico delivers you with an online file store server.
 
 Replace VERSION with the version of Manorrock Calico you want to run.
 
+For a list of versions see [Docker Hub](https://hub.docker.com/r/manorrock/calico/tags)
+
 > _Note_ in the command line above we have mapped the `/root/.manorrock/calico`
 > directory to point to the current directory so we can persist outside of the
 > Docker container.
