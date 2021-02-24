@@ -22,7 +22,7 @@
                              value="Create" action="#{createDirectoryBean.create}">
                 <f:param name="directoryPath" value="#{createDirectoryBean.directoryPath}"/>
             </h:commandButton>
-            <h:outputLink class="button" value="#{facesContext.externalContext.requestContextPath}/browse/#{createDirectoryBean.directoryPath}">
+            <h:outputLink class="button" value="#{facesContext.externalContext.requestContextPath}/directory/view/#{createDirectoryBean.directoryPath}">
                 <h:outputText value="Back"/>
             </h:outputLink>
         </h:form>

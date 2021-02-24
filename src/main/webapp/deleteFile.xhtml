@@ -25,7 +25,7 @@
                 <f:param name="directoryPath" value="#{deleteFileBean.directoryPath}"/>
                 <f:param name="filename" value="#{deleteFileBean.name}"/>
             </h:commandButton>
-            <h:outputLink class="button" value="#{facesContext.externalContext.requestContextPath}/browse/#{deleteFileBean.directoryPath}"><button type="button">Back</button></h:outputLink>
+            <h:outputLink class="button" value="#{facesContext.externalContext.requestContextPath}/directory/view/#{deleteFileBean.directoryPath}"><button type="button">Back</button></h:outputLink>
         </h:form>
         <br/>
         <ui:include src="/WEB-INF/ui/footer.xhtml"/>

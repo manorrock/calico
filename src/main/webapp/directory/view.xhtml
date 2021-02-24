@@ -27,7 +27,7 @@
                         <td>&#160;</td>
                         <td>
                             <h:form id="form_back">
-                                <h:outputLink value="#{facesContext.externalContext.requestContextPath}/browse/#{browseBean.parentPath}" rendered="#{not empty browseBean.directoryPath}">
+                                <h:outputLink value="#{facesContext.externalContext.requestContextPath}/directory/view/#{browseBean.parentPath}" rendered="#{not empty browseBean.directoryPath}">
                                     <h:outputText value=".."/>
                                 </h:outputLink>
                             </h:form>
@@ -44,10 +44,10 @@
                                     <h:outputLink value="#{facesContext.externalContext.requestContextPath}/download/#{file.name}" rendered="#{empty browseBean.directoryPath}">
                                         <h:outputText value="#{file.name}" rendered="#{not file.attributes.directory}"/>
                                     </h:outputLink>
-                                    <h:outputLink id="button_#{status.index}_a" value="#{facesContext.externalContext.requestContextPath}/browse/#{browseBean.directoryPath}/#{file.name}" rendered="#{file.attributes.directory and not empty browseBean.directoryPath}">
+                                    <h:outputLink id="button_#{status.index}_a" value="#{facesContext.externalContext.requestContextPath}/directory/view/#{browseBean.directoryPath}/#{file.name}" rendered="#{file.attributes.directory and not empty browseBean.directoryPath}">
                                         <h:outputText value="#{file.name}"/>
                                     </h:outputLink>
-                                    <h:outputLink id="button_#{status.index}_b" value="#{facesContext.externalContext.requestContextPath}/browse/#{file.name}" rendered="#{file.attributes.directory and empty browseBean.directoryPath}">
+                                    <h:outputLink id="button_#{status.index}_b" value="#{facesContext.externalContext.requestContextPath}/directory/view/#{file.name}" rendered="#{file.attributes.directory and empty browseBean.directoryPath}">
                                         <h:outputText value="#{file.name}"/>
                                     </h:outputLink>
                                 </td>

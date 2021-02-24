@@ -25,8 +25,6 @@
  */
 package com.manorrock.calico;
 
-import com.manorrock.calico.ApplicationBean;
-import com.manorrock.calico.DirectoryModel;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Serializable;
@@ -70,7 +68,7 @@ public class BrowseBean implements Serializable {
      *
      * @param request the request.
      * @param facesContext the Faces context.
-     * @return "/browse.xhtml"
+     * @return "/directory/view.xhtml"
      */
     @ActionMapping("/*")
     public String browse(HttpServletRequest request, FacesContext facesContext) {
@@ -89,7 +87,7 @@ public class BrowseBean implements Serializable {
             directoryPath = request.getPathInfo().substring(1);
             directory = application.getDirectory(directoryPath);
         }
-        return "/browse.xhtml";
+        return "/directory/view.xhtml";
     }
 
     /**

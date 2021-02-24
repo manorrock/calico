@@ -83,7 +83,7 @@ public class CreateDirectoryBean {
         redirectUrl.append(externalContext.getRequestServerName());
         redirectUrl.append(externalContext.getRequestServerPort() == 80 ? "" : ":" + externalContext.getRequestServerPort());
         redirectUrl.append(externalContext.getRequestContextPath());
-        redirectUrl.append("/browse/");
+        redirectUrl.append("/directory/view/");
         redirectUrl.append(directoryPath);
         try {
             facesContext.getExternalContext().redirect(redirectUrl.toString());
