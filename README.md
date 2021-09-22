@@ -21,12 +21,6 @@ For a list of versions see [Docker Hub](https://hub.docker.com/r/manorrock/calic
 
 Click [here](REST.md) for the REST API.
 
-## Testing nightly versions
-
-Every night we push a nigthly version to Docker Hub. If you want to give the
-version under development a test drive use `latest` as the version for the
-instructions above.
-
 ## Important notice
 
 Note if you file issues or answer questions on the issue tracker and/or issue 
