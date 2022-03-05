@@ -26,18 +26,11 @@ jobs:
       run: |
         docker build -f src/main/docker/Dockerfile.amd64 -t manorrock/calico:amd64-latest .
         docker push manorrock/calico:amd64-latest
-    - name: Build arm32v6 image
-      run: |
-        docker build -f src/main/docker/Dockerfile.arm32v6 -t manorrock/calico:arm32v6-latest .
-        docker push manorrock/calico:arm32v6-latest
     - name: Push Docker manifest
       run: |
         export DOCKER_CLI_EXPERIMENTAL=enabled
         docker manifest create manorrock/calico:latest \
-          manorrock/calico:amd64-latest \
-          manorrock/calico:arm32v6-latest
+          manorrock/calico:amd64-latest --amend
         docker manifest annotate manorrock/calico:latest \
           manorrock/calico:amd64-latest --os linux --arch amd64
-        docker manifest annotate manorrock/calico:latest \
-          manorrock/calico:arm32v6-latest --os linux --arch arm
         docker manifest push manorrock/calico:latest
