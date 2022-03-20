@@ -28,15 +28,15 @@ package com.manorrock.calico;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Serializable;
-import javax.enterprise.context.RequestScoped;
-import javax.faces.FacesException;
-import javax.faces.context.FacesContext;
-import javax.inject.Inject;
-import javax.inject.Named;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.Part;
-import org.omnifaces.oyena.action.ActionMapping;
+import jakarta.enterprise.context.RequestScoped;
+import jakarta.faces.FacesException;
+import jakarta.faces.context.FacesContext;
+import jakarta.inject.Inject;
+import jakarta.inject.Named;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.Part;
+import com.manorrock.oyena.lifecycle.action.ActionMapping;
 
 /**
  * The browse bean.
