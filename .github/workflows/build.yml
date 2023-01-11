@@ -16,4 +16,14 @@ jobs:
       with:
         java-version: 17
     - name: Build with Maven
-      run: mvn -B package
+      run: mvn -B --ntp package
+    - name: Build container image
+      run: |
+        docker buildx build --push --platform linux/amd64 -f Dockerfile -t manorrock/calico:amd64-latest .
+        docker pull manorrock/calico:amd64-latest
+        export DOCKER_CLI_EXPERIMENTAL=enabled
+        docker manifest create manorrock/calico:latest \
+           manorrock/calico:amd64-latest
+        docker manifest annotate manorrock/calico:latest \
+           manorrock/calico:amd64-latest --os linux --arch amd64
+        docker manifest push manorrock/calico:latest
