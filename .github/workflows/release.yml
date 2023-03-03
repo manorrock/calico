@@ -25,8 +25,8 @@ jobs:
         TAG=${GITHUB_REF}
         INDEX=${TAG%v*}
         VERSION=${TAG:${#INDEX}+1}
-        docker buildx build --push --platform linux/amd64 -f Dockerfile -t manorrock/calico:amd64-$VERSION .
-        docker pull manorrock/calico:amd64-$VERSION
+        docker build -f Dockerfile -t manorrock/calico:amd64-$VERSION .
+        docker push manorrock/calico:amd64-$VERSION
         export DOCKER_CLI_EXPERIMENTAL=enabled
         docker manifest create manorrock/calico:$VERSION \
            manorrock/calico:amd64-$VERSION
