@@ -1,4 +1,4 @@
-FROM --platform=linux/arm64 piranhacloud/webprofile:v23.1.0
+FROM --platform=linux/arm64 piranhacloud/webprofile:v23.3.0
 COPY target/calico.war ROOT.war
 USER root
 RUN chown -R piranha:piranha /home/piranha
