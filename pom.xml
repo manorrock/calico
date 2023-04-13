@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.manorrock.calico</groupId>
     <artifactId>calico</artifactId>
-    <version>20.4.0-SNAPSHOT</version>
+    <version>23.4.0</version>
     <packaging>war</packaging>
     <name>Manorrock Calico</name>
     <url>https://github.com/manorrock/calico</url>    
