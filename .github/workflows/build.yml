@@ -17,4 +17,4 @@ jobs:
     - name: Build with Maven
       run: mvn -B --ntp package
     - name: Push to Docker Hub
-      run: mvn -B -DskipTests=true -DskipITs=true -ntp -P docker deploy
+      run: mvn -B -DskipTests=true -DskipITs=true -ntp -P docker docker:deploy
