@@ -19,7 +19,7 @@
     </licenses>
     <properties>
         <piranha.distribution>webprofile</piranha.distribution>
-        <piranha.version>23.1.0</piranha.version>
+        <piranha.version>23.8.0</piranha.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!-- plugins -->
         <docker-maven-plugin.version>0.42.1</docker-maven-plugin.version>
@@ -158,6 +158,13 @@
                                 <phase>install</phase>
                                 <goals>
                                     <goal>build</goal>
+                                </goals>
+                            </execution>
+                            <execution>
+                                <id>push</id>
+                                <phase>deploy</phase>
+                                <goals>
+                                    <goal>push</goal>
                                 </goals>
                             </execution>
                         </executions>
