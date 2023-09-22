@@ -12,7 +12,7 @@ jobs:
     - name: Set up Java
       uses: actions/setup-java@v1
       with:
-        java-version: 19
+        java-version: 20
     - name: Build with Maven
       run: mvn -B -DskipTests -ntp install
     - name: Login to Docker Hub
