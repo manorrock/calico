@@ -1,5 +1,7 @@
 # Manorrock Calico
 
+[![build](https://github.com/manorrock/calico/actions/workflows/build.yml/badge.svg)](https://github.com/manorrock/calico/actions/workflows/build.yml)
+
 ## REST API
 
 Click [here](REST.md) for the REST API.
