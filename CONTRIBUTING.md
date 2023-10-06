@@ -1,8 +1,8 @@
 
 # Contributing
 
-How can I contribute to Manorrock Calico? Well it all depends on the level of 
-involvement you are aiming for. The following comes to mind:
+How can I contribute? Well it all depends on the level of involvement you are
+aiming for. The following comes to mind:
 
 1. Write blog entries with example applications
 2. File issues for bugs you encounter.

@@ -6,6 +6,10 @@
 
 Click [here](REST.md) for the REST API.
 
+## How do I contribute?
+
+See [Contributing](CONTRIBUTING.md)
+
 ## Important notice
 
 Note if you file issues or answer questions on the issue tracker and/or issue 
