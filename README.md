@@ -10,6 +10,10 @@ Click [here](REST.md) for the REST API.
 
 See [Contributing](CONTRIBUTING.md)
 
+## Our code of Conduct
+
+See [Code of Conduct](CODE_OF_CONDUCT.md)
+
 ## Important notice
 
 Note if you file issues or answer questions on the issue tracker and/or issue 
