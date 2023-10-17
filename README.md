@@ -2,6 +2,15 @@
 
 [![build](https://github.com/manorrock/calico/actions/workflows/build.yml/badge.svg)](https://github.com/manorrock/calico/actions/workflows/build.yml)
 
+## Running using the container image from DockerHub
+
+In an empty directory of your choice use the following command line to start 
+Manorrock Calico.
+
+```shell
+  docker run --rm -d -it -v $PWD:/mnt manorrock/calico
+```
+
 ## REST API
 
 Click [here](REST.md) for the REST API.
