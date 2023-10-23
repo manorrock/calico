@@ -8,7 +8,7 @@ In an empty directory of your choice use the following command line to start
 Manorrock Calico.
 
 ```shell
-  docker run --rm -d -it -v $PWD:/mnt manorrock/calico
+  docker run --rm -d -it -p 8080:8080 -v $PWD:/mnt manorrock/calico
 ```
 
 ## REST API
