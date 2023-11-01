@@ -11,6 +11,16 @@ Manorrock Calico.
   docker run --rm -d -it -p 8080:8080 -v $PWD:/mnt manorrock/calico
 ```
 
+## Verify the server is up and running
+
+To verify the server is up and running point your browser to:
+
+```
+http://localhost:8080/
+```
+
+Congratulations you are now running Manorrock Calico!
+
 ## REST API
 
 Click [here](REST.md) for the REST API.
