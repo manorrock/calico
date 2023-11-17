@@ -140,7 +140,7 @@
                             <images>
                                 <image>
                                     <alias>calico</alias>
-                                    <name>manorrock/calico:%l</name>
+                                    <name>ghcr.io/manorrock/calico:%l</name>
                                     <build>
                                         <buildx>
                                             <platforms>
