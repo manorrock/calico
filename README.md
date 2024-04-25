@@ -2,7 +2,7 @@
 
 [![build](https://github.com/manorrock/calico/actions/workflows/build.yml/badge.svg)](https://github.com/manorrock/calico/actions/workflows/build.yml)
 
-## Running using the container image from DockerHub
+## Run using the container image from GitHub Container Registry
 
 In an empty directory of your choice use the following command line to start 
 Manorrock Calico.
