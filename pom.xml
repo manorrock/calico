@@ -19,7 +19,7 @@
     </licenses>
     <properties>
         <!-- dependencies -->
-        <piranha.version>24.4.0</piranha.version>
+        <piranha.version>24.8.0</piranha.version>
         <!-- other -->
         <java.version>21</java.version>
         <piranha.distribution>webprofile</piranha.distribution>
